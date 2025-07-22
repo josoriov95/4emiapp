@@ -14,11 +14,19 @@ formulario.addEventListener("submit", (e) => {
 });
 
 
-function editar(e){
+function editar(e) {
     const parrafo = e.parentElement.querySelector("p:nth-child(2)");
-    parrafo.contentEditable = true;
+    if (e.textContent == "Editar") {
+        parrafo.contentEditable = true;
+        e.textContent = "Guardar"
+        parrafo.focus();
+    }
+    else {
+        e.textContent = "Editar"
+        parrafo.contentEditable = false;
+    }
 }
 
-function eliminar(e){
+function eliminar(e) {
     e.parentElement.remove();
 }
